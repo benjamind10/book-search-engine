@@ -16,6 +16,7 @@ import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
+// Create http link for apollo
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -30,6 +31,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// creates the connection to db
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
